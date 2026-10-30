@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="index1.js"></script>
+</body>
+</html>
+
+
+JavaScript has three ways to declare variables: var, let, and const.
+- var – Introduced in ES5.
+- let and const – Introduced in ES6 (Modern JavaScript).
+
+1. var
+    - function scope  means it only respects function not any block of if or for 
+    - reinitialization and Redeclaration allowed
+    - Hoisted at top and initialized with undefined (when access before declaration it gives undefined)
+
+2. let
+    - block scope (variable declared with let keyword accessible only within block where it is declared)
+    - redeclaration not allowed
+    - reinitialization allowed
+    - Hoisted to the top of its block but not initialized.(Access before declaration: Gives a ReferenceError because of the Temporal Dead Zone (TDZ). 
+    error: can not access a as it is not initialized)
+
+3. const
+    - block scope
+    - initialization compulsory
+    - redeclaration and Reassignment not allowed
+    - Hoisted to the top of its block but not initialized.(Access before declaration: Gives a ReferenceError because of the Temporal Dead Zone (TDZ). 
+    error: can not access a as it is not initialized)
+
+        Important: const with Objects
+        We cannot reassign a const object, but we can modify its properties.
+        const person = {
+            name: "Gayatri"
+        };
+        person.name = "Kai"; // Allowed
+        // person = {};      // Not allowed
+
+
+- TDZ is the time between entering a block scope and the actual declaration of a let or const variable.
+- During this period, the variable cannot be accessed.
+- Accessing it before initialization results in a ReferenceError.
+- var does not have a TDZ.
