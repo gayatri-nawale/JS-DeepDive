@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log(0 / 0); // NaN
+      console.log(Number("hello")); // NaN
+      console.log(Math.sqrt(-1)); // NaN
+      console.log(typeof NaN) //number
+
+        let s1=Symbol("s1");
+        let s2=Symbol("s1");
+        console.log(s1===s2); //false
+
+
+    </script>
+  </body>
+</html>
+
+
+## Data types
+
+Primitive data types store a single value.
+    - Types: `Number`, `String`, `Boolean`, `Null`, `Undefined`, `Symbol`, `BigInt`
+    - Immutable: The value itself cannot be changed after creation, but a variable can be reassigned a different value.
+    - Primitive values are not objects and do not have their own properties or methods.
+
+Non-Primitive Data Types (Reference Types)
+    These are used to store collections of data or more complex structures.
+    - Types: Objects, Arrays, Functions
+    - Mutable: Their contents or properties can be changed.
+    - They can have properties and methods.
+    - Variables hold references to objects rather than directly storing the object itself.
+
+1. undefined - automatically assigned when value has not been assigned
+2. null  -  Represents the intentional absence of a value.
+3. symbol - unique immutable identifer (- Two symbols with the same description are still unique.) 
+
+
+NaN stands for Not-a-Number.
+It represents an invalid or failed numeric result of mathematical operation..
+
+Even though NaN represents an invalid numerical result, JavaScript considers NaN a number because it follows the IEEE 754 standard, which defines NaN as a special value within the floating-point number system.
+
+
+Type Conversion (Explicit Conversion): Manually changing a value from one data type to another
+- We manually convert the data type using functions like `Number()`, `String()`, and `Boolean()`.
+Wrapper objects are objects that wrap primitive values and allow them to be treated as objects.
+let a = "10";
+let b = Number(a);
+console.log(b);        // 10
+console.log(typeof b); // number
+console.log(String(100));  // "100"
+console.log(Boolean(1));   // true
+console.log(Number("abc"));// NaN
+
+
+Type Coercion (Implicit Conversion): JavaScript automatically changes a value from one data type to another. 
+let a = "10";
+let b = 5;
+console.log(a - b); // 5
+console.log(a * b); // 50
+console.log(a / b); // 2
+console.log(a + b); // "105"
+
+Important: The `+` operator behaves differently because it can perform both addition and string concatenation.
+
+- `"10" + 5` → `"105"` (string concatenation)
+- `"10" 5` → `5` (string converted to a number)
+
+JavaScript can implicitly convert strings to numbers for subtraction, multiplication, and division. However, it does not always convert them as expected, so explicit conversion is safer when you want numerical calculations.
+
+
+
+Truthy values: Values that are treated as `true` when used in a condition.
+
+- "0" — non-empty string
+- "false" — non-empty string
+- [] — empty array
+- {} — empty object
+- "Hello" — non-empty string
+- 1— non-zero number
+- -1 - truthy
+
+Falsy values: Values that are treated as `false` when used in a condition.
+
+- false
+- 0 and 0
+- "" (empty string)
+- null
+- undefined
+- NaN (Not a Number)
+- 0n (BigInt zero)
+
+Remember: "0" and "false" are strings, so they are truthy. Empty arrays `[]` and empty objects `{}` are also truthy in JavaScript.
+- All objects are truthy in JavaScript, even when they contain 0 or false.
+console.log(Boolean(new Number(0))); // true
+
+When we compare primitive values using ===, JavaScript compares their values.
+let a = "Hello";
+let b = "Hello";
+console.log(a === b); // true
+
+Objects are compared based on their identity (reference), not their contents.
+let a = { name: "John" };
+let b = { name: "John" };
+console.log(a === b); // false
+    Why false?
+    Although both objects have identical properties, they are two different objects.
+    They have different references.
