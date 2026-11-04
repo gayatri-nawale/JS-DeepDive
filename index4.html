@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Conditional Statements: Execute code based on a condition</h1>
+    <h3>if else, switch</h3>
+    <h2>ROCK PAPER SCISSOR Game</h2>
+</body>
+<script>
+
+    function rpsgame(user,computer){
+        if(user === computer) return "Draw";
+
+        if(user =="rock" && computer =="scissor") return "User Win";
+        if(user =="scissor" && computer =="paper") return "User Win";
+        if(user =="paper" && computer =="rock") return "User Win";
+
+        return "Computer Win"
+    }
+
+console.log(rpsgame("rock","scissor"))
+</script>
+</html>
+
+
+<!-- 
+Control Flow Statement
+1. if - else if - else 
+2. entry return -> 
+    if(condition) return "Statement";
+    if(condition) return "Statement";
+3.switch case
+    let a=3;
+    switch(a):
+        case 1:
+            return "case no.1 ";
+            break;
+        case 2:
+            return "case no.2 ";
+            break;
+        case 3:
+            return "case no.3 ";
+            break;
+        case 4:
+            return "case no.4 ";
+            break;
+        default:
+            return "End of switch"; 
+            
+-->

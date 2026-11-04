@@ -6,6 +6,7 @@
     <title>Document</title>
   </head>
   <body>
+    <h1>Data types, Type Conversion & Type Coercion, Truthy and Falsy Values</h1>
     <script>
       console.log(0 / 0); // NaN
       console.log(Number("hello")); // NaN
@@ -16,12 +17,16 @@
         let s2=Symbol("s1");
         console.log(s1===s2); //false
 
+        console.log(!!s1); // !! use to check whether value is truthy or falsy
+        console.log(!!-1);
+        console.log(!!0);
+
 
     </script>
   </body>
 </html>
 
-
+<!-- 
 ## Data types
 
 Primitive data types store a single value.
@@ -37,9 +42,14 @@ Non-Primitive Data Types (Reference Types)
     - Variables hold references to objects rather than directly storing the object itself.
 
 1. undefined - automatically assigned when value has not been assigned
-2. null  -  Represents the intentional absence of a value.
-3. symbol - unique immutable identifer (- Two symbols with the same description are still unique.) 
+Example: A student registration form has an Age field, but the variable has not been assigned any value.
 
+2. null  -  Represents the intentional absence of a value.
+Example: A student registration form has an Age field, and the system intentionally stores no value for the student's age.
+Result: null (Intentionally empty.)
+
+3. symbol - unique immutable identifer (- Two symbols with the same description are still unique.) 
+ --------------------------
 
 NaN stands for Not-a-Number.
 It represents an invalid or failed numeric result of mathematical operation..
@@ -70,7 +80,7 @@ console.log(a + b); // "105"
 Important: The `+` operator behaves differently because it can perform both addition and string concatenation.
 
 - `"10" + 5` → `"105"` (string concatenation)
-- `"10" 5` → `5` (string converted to a number)
+- `"10" - 5` → `5` (string converted to a number)
 
 JavaScript can implicitly convert strings to numbers for subtraction, multiplication, and division. However, it does not always convert them as expected, so explicit conversion is safer when you want numerical calculations.
 
@@ -99,6 +109,8 @@ Falsy values: Values that are treated as `false` when used in a condition.
 Remember: "0" and "false" are strings, so they are truthy. Empty arrays `[]` and empty objects `{}` are also truthy in JavaScript.
 - All objects are truthy in JavaScript, even when they contain 0 or false.
 console.log(Boolean(new Number(0))); // true
+!! use to check whether value is truthy or falsy
+
 
 When we compare primitive values using ===, JavaScript compares their values.
 let a = "Hello";
@@ -111,4 +123,4 @@ let b = { name: "John" };
 console.log(a === b); // false
     Why false?
     Although both objects have identical properties, they are two different objects.
-    They have different references.
+    They have different references. -->
