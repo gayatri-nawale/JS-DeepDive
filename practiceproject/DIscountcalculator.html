@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculator</title>
+
+</head>
+<body>
+    <h1>Discount Calculator</h1>
+
+    Enter Amount : <input type="number" id="amount" placeholder="in rs"/> <br><br>
+    Enter Discount : <input type="number" id="discount" placeholder="in % (e.g. 10%)"/><br><br>
+
+    <button id="calc">Calculate</button>
+
+    <p id = "result"></p>
+
+    <script>
+
+        let amt=document.getElementById("amount");
+        let discount=document.getElementById("discount");
+        let btn=document.getElementById("calc");
+        let res=document.getElementById("result");
+        function discountcal(a,d){
+            return a-(a*(d/100))
+        }
+
+        btn.onclick=function(){
+
+            res.innerHTML=`Discounted price is : ${discountcal(Number(amt.value),Number(discount.value))} rs.`
+            
+        }
+    </script>
+
+    
+</body>
+</html>

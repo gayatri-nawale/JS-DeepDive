@@ -1,0 +1,168 @@
+<!-- functions -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    
+    <h1>Functions</h1>
+    <script>
+      // Function Declaration
+      function greet() {
+        console.log("Hello");
+      }
+      greet();
+
+      // function with parameter and argument
+      function greet1(name) {
+        console.log(`Hello ${name}`);
+      }
+      greet1("pandu");
+
+      //   Function Expression
+      let sayhi = function () {
+        console.log("hi");
+      };
+
+      sayhi();
+
+      // rest
+      function sum(...num) {
+        let sum = 0;
+        for (let i = 0; i < num.length; i++) {
+          sum += num[i];
+        }
+        return sum;
+      }
+      console.log(sum(1, 2, 3, 4, 5, 6));
+
+      //higher order functions
+      function abcd() {
+        return function () {
+          console.log("heyheyhe");
+        };
+      }
+      abcd()();
+
+
+      //iife
+      (function sample(){
+        document.write("This is Immediately Involked Function Expression")
+      })()
+
+
+      //closure
+
+      function outer (){
+        let cnt=0;
+        return function(){
+
+          cnt++;
+          console.log(cnt)
+        }
+      }
+
+      let counter=outer()
+      counter();
+      counter();
+      counter()
+    </script>
+  </body>
+</html>
+<!-- 
+A Function is a block of reusable code that performs a specific task when it is called (invoked).
+
+Three ways to declare functions in JavaScript:
+1. Function Declaration – Using the function keyword followed by a function name.
+2. Function Expression – Storing a function inside a variable.
+3. Arrow Function – Using the arrow (=>) syntax to define a function. 
+
+
+A parameter is a variable written inside the function definition. It receives a value when the function is called.
+
+An argument is the actual value passed to a function when calling it. 
+
+
+1. Default Parameter: Gives a default value to parameter if no value is passed to a function.
+
+2. Rest Operator (...): Used in function definitions to collect multiple arguments into a single array when we don't know how many arguments will be passed
+
+3. Spread Operator (...): Used to expand array elements or object properties into individual values.
+
+First-Class Functions
+    In JavaScript, functions are treated like values. They can be:
+    - Stored in variables.
+    - Passed as arguments to other functions.
+    - Returned from other functions.
+
+Higher-Order Functions
+A function that either:
+- Accepts another function as an argument, OR
+- Returns another function.
+
+
+Pure Function: A function that gives the same output for the same input and does not change any external value.
+Impure Function: A function that changes an external value or variable outside the function. 
+
+
+When an inner function remembers and can access the variables of its outer function, even after the outer function has finished executing.
+ (Similar to a higher-order function because it returns another function, but the inner function also remembers and can use the outer function's variables.)
+ 
+Example:
+function abcd() {
+    let a = 12;
+
+    return function() {
+        console.log(a);
+    };
+}
+let result = abcd();
+result();
+
+Output:
+12
+
+1. abcd() is the outer function.
+2. a = 12 is a variable inside the outer function.
+3. The outer function returns an inner function.
+4. The inner function remembers the variable a and can access it even after the outer function has finished executing.
+
+
+Lexical scoping means a variable can be accessed within its own scope and its inner scopes, but it cannot be accessed outside its scope.
+
+function A() {
+    let a = 10;
+
+    function B() {
+        let b = 20;
+
+        function C() {
+            let c = 30;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+
+        C();
+    }
+
+    B();
+}
+
+A();
+
+IIFE (Immediately Invoked Function Expression)
+An IIFE is a function that is defined and executed immediately without needing to call it separately.
+
+
+Hoisting is a JavaScript behaviour in which variable and function declarations are processed before the code is executed, allowing certain functions and variables to be accessed before their declaration in the code.
+
+A function declaration is fully hoisted, so we can call it even before defining it.
+
+In a function expression & Arrow Function, the variable declaration is hoisted, but the function assignment is not.\
+
+
+-->

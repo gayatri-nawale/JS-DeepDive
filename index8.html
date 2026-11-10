@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Objects</h1>
+    <script></script>
+</body>
+</html>
+
+
+An object is used when we want to represent one complete entity with multiple related properties and their values.
+
+Array → Stores multiple values, generally in an ordered collection.
+Object → Stores related information about an entity using key-value pairs.
+
+Accessing Object Properties
+There are two ways to access properties.
+Dot notation	                                Bracket notation
+student.name	                                student["name"]
+Uses property name directly	                    Uses a string or variable
+Cannot directly use dynamic property names	    Supports dynamic property names
+
+Destructuring means extracting properties from an object and storing them in separate variables.
+
+The for...in loop is used to iterate over the keys (property names) of an object.
+for (let key in student) {
+    console.log(key, student[key]);
+}
+
+Object.keys(objName) returns an array containing all the keys of an object.
+Object.entries() returns an array of key-value pairs.
+
+
+Optional chaining (?.) is a feature in JavaScript that allows us to safely access properties of an object without getting an error when an intermediate property is null or undefined.
+It checks whether the value before ?. exists. If it is null or undefined, it stops evaluating the expression and returns undefined instead of throwing an error.
+
+
+Copying an object means creating another object with the same properties and values.
+
+There are two main types of object copying:
+A. Shallow Copy
+    A shallow copy creates a new object and copies all the properties of the original object into it.
+    However, if the original object contains nested objects or arrays, their references are copied instead of creating independent copies.
+
+Object.assign(): way to create a shallow copy:
+let student2 = Object.assign({}, student1);
+
+
+B. Deep Copy
+    A deep copy creates a completely independent copy of an object, including its nested objects and arrays.
+    Changes made to the copied object do not affect the original object, including changes to nested properties.
+        let copy = JSON.parse(JSON.stringify(student1));      
+                    → Converts the object into a JSON string.
+                    → Converts that string back into a new JavaScript object.
+                    Result: Creates a deep copy with independent nested objects.
+
+
+Computed properties allow us to dynamically define object property names using expressions or variables.
+Instead of hardcoding property names, we can use square brackets [] inside an object literal to calculate the property name at runtime.
+Example:
+let key = "name";
+
+let student = {
+    [key]: "Sammy",
+    age: 21
+};
+
+console.log(student);
